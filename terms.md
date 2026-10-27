@@ -4,7 +4,7 @@ title: Terms of Service
 
 # Terms of Service
 
-*Strybe - Big Lemon LLC. Effective 2026-10-18.*
+*Strybe - Big Lemon LLC. Effective 2026-10-27.*
 
 ## Agreement
 

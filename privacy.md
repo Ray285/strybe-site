@@ -4,7 +4,7 @@ title: Privacy Policy
 
 # Privacy Policy
 
-*Strybe - Big Lemon LLC. Effective 2026-10-18.*
+*Strybe - Big Lemon LLC. Effective 2026-10-27.*
 
 ## The short version
 
