@@ -10,10 +10,7 @@ animate: true
   assets/js/site.js); data-bar-color on a line's span tints that line's bar.
 {% endcomment %}
 <nav class="nav gutter">
-  {% comment %} Strybe has no app icon yet (the app's is still Expo's placeholder).
-    Once it does, put it at assets/images/icon.png and restore:
-    <img class="nav-logo" src="{{ '/assets/images/icon.png' | relative_url }}" alt="Strybe logo" width="24" height="24">
-  {% endcomment %}
+  <img class="nav-logo" src="{{ '/assets/images/icon.png' | relative_url }}" alt="Strybe logo" width="24" height="24">
   <span class="nav-name"
     data-marker
     data-marker-stagger="0"
