@@ -1,8 +1,10 @@
 title: Strybe
+tagline: Weekly habits, one check-in at a time
+description: Set a weekly goal for each habit, check in as you go, and see how the week went every Sunday.
 defaults:
   - scope:
       path: ""
     values:
-      layout: default
+      layout: legal
 exclude:
   - README.md

@@ -1,0 +1,101 @@
+---
+layout: base
+title: Strybe
+body_class: page-home
+animate: true
+---
+{% comment %}
+  The landing page - edit freely. The highlight-marker reveal on the nav,
+  headline and subheading is driven by the data-marker-* attributes (see
+  assets/js/site.js); data-bar-color on a line's span tints that line's bar.
+{% endcomment %}
+<nav class="nav gutter">
+  {% comment %} Strybe has no app icon yet (the app's is still Expo's placeholder).
+    Once it does, put it at assets/images/icon.png and restore:
+    <img class="nav-logo" src="{{ '/assets/images/icon.png' | relative_url }}" alt="Strybe logo" width="24" height="24">
+  {% endcomment %}
+  <span class="nav-name"
+    data-marker
+    data-marker-stagger="0"
+    data-marker-scroll-start="top 99%"
+    data-marker-bar-duration="0.4"
+    data-marker-bar-ease="power2.inOut"
+    data-marker-from-x="-16"
+    data-marker-text-duration="0.45"
+    data-marker-text-ease="power3.out"
+    data-marker-text-offset="0.5"
+    data-marker-section="0">Strybe</span>
+</nav>
+
+<main class="hero gutter">
+  <div class="hero-copy">
+    <div class="hero-headline-wrap">
+      <h1 class="hero-headline"
+        data-marker
+        data-marker-stagger="150"
+        data-marker-bar-duration="0.4"
+        data-marker-bar-ease="power3.inOut"
+        data-marker-from-x="-64"
+        data-marker-text-duration="0.35"
+        data-marker-text-ease="power2.out"
+        data-marker-text-offset="0.5"
+        data-marker-section="0.1">
+        <span data-bar-color="#F7F7FA">Small habits,</span>
+        <span data-bar-color="#F7F7FA">one week</span>
+        <span class="hero-accent" data-bar-color="#EC662B40">at a time</span>
+      </h1>
+    </div>
+
+    <p class="hero-sub"
+      data-marker
+      data-marker-stagger="80"
+      data-marker-scroll-start="top 88%"
+      data-marker-bar-duration="0.55"
+      data-marker-bar-ease="power2.inOut"
+      data-marker-from-x="-20"
+      data-marker-text-duration="0.5"
+      data-marker-text-ease="power2.out"
+      data-marker-text-offset="0.5"
+      data-marker-section="0.3"
+      data-marker-then="badges"
+      data-marker-then-early="0.4">Set a weekly goal for each habit, check in as you go, and see how the week went every Sunday. Everything stays on your phone.</p>
+
+    <div class="badges" data-badges>
+      {% comment %} Swap for the App Store link once the app is live:
+        <a class="badge" href="https://apps.apple.com/app/idXXXXXXXXXX" target="_blank" rel="noopener noreferrer"><img ...></a>
+      {% endcomment %}
+      <div class="badge badge-soon">
+        <img src="{{ '/assets/images/app-store-badge.svg' | relative_url }}" alt="Download on the App Store" width="120" height="40">
+        <span>Coming soon</span>
+      </div>
+      <div class="badge badge-soon">
+        <img src="{{ '/assets/images/google-play-badge.svg' | relative_url }}" alt="Get it on Google Play" width="135" height="40">
+        <span>Coming soon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview" data-preview>
+    <div class="preview-bg" data-preview-bg aria-hidden="true"></div>
+    <div class="phone" data-preview-phone>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          {% comment %} A screen recording fits here too, as in the arcs site:
+            <video src="{{ '/assets/videos/app-preview.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+          {% endcomment %}
+          <img src="{{ '/assets/images/app-preview.png' | relative_url }}" alt="Strybe's weekly recap">
+        </div>
+        <img class="phone-bezel" src="{{ '/assets/images/iphone-16-pro-frame.png' | relative_url }}" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer gutter">
+  <p>&copy; {{ 'now' | date: '%Y' }} Big Lemon LLC. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a>
+    <a href="{{ '/terms' | relative_url }}">Terms of Service</a>
+    <a href="mailto:ray.d2lemon@gmail.com">Contact: ray.d2lemon@gmail.com</a>
+  </div>
+</footer>

@@ -1,0 +1,461 @@
+/*
+ * Strybe site. The look is the arcs site's (Tailwind there), written out as
+ * plain CSS - GitHub Pages builds Jekyll only, with no PostCSS step.
+ */
+
+:root {
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --panel: #f7f7fa;
+  --ink: #0a0a0f;
+  /* Strybe's accent, from the app's theme. */
+  --accent: #ec662b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Shared horizontal inset, so nav, hero and footer sit on one grid. */
+.gutter {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width: 640px) {
+  .gutter { padding-left: 24px; padding-right: 24px; }
+}
+@media (min-width: 1024px) {
+  .gutter { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1280px) {
+  .gutter { padding-left: 48px; padding-right: 48px; }
+}
+
+/* ---------- Landing page ---------- */
+
+.page-home {
+  background: #fff;
+  color: var(--gray-900);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+  box-sizing: content-box;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.nav-logo {
+  height: 24px;
+  width: auto;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.nav-name {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-400);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.hero-headline-wrap {
+  container-type: inline-size;
+  min-width: 0;
+  width: 100%;
+}
+
+.hero-headline {
+  margin: 0 0 40px;
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  color: var(--gray-900);
+  text-align: center;
+}
+
+/* Each authored line is its own line, so each gets its own marker bar. */
+.hero-headline > span {
+  display: block;
+}
+
+/* Type scales with the text column (cqi), not the viewport. */
+@supports (font-size: 1cqi) {
+  .hero-headline { font-size: clamp(2.5rem, 0.1rem + 10cqi, 8rem); }
+}
+@supports not (font-size: 1cqi) {
+  .hero-headline { font-size: clamp(2.5rem, 4vw + 1.2rem, 8rem); }
+}
+
+.hero-accent {
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+.hero-sub {
+  margin: 0 auto 40px;
+  max-width: 36rem;
+  color: var(--gray-400);
+  line-height: 1.625;
+  font-size: clamp(15px, 1.4vw, 18px);
+  text-align: center;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+
+.badge img {
+  height: 40px;
+  width: auto;
+}
+
+.badge-soon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.badge-soon img {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.badge-soon span {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-400);
+}
+
+/* The phone on its soft panel. */
+.preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 32px 0;
+}
+
+.preview-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, var(--panel), transparent 64px),
+    radial-gradient(ellipse 80% 60% at 60% 50%, rgba(236, 102, 43, 0.06) 0%, transparent 70%),
+    var(--panel);
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  filter: drop-shadow(0 32px 64px rgba(0, 0, 0, 0.18));
+}
+
+/* Matches the frame PNG's 552x1263, so the mask and bezel line up. */
+.phone-frame {
+  position: relative;
+  height: clamp(360px, min(calc(75vw * 1263 / 552), 78vh), 780px);
+  aspect-ratio: 552 / 1263;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+  -webkit-mask: url("../images/iphone-16-pro-screen-mask.png") center / 100% 100% no-repeat;
+  mask: url("../images/iphone-16-pro-screen-mask.png") center / 100% 100% no-repeat;
+}
+
+/* The display is rows 180-1081 of the 1263px frame: ~71.34% tall, centred at 51%. */
+.phone-screen img,
+.phone-screen video {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  height: calc(100% * 0.7134);
+  width: auto;
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+
+.phone-bezel {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--gray-100);
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 8px;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.footer a:hover {
+  color: var(--gray-700);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    flex-direction: row;
+    column-gap: 40px;
+  }
+  .hero-copy {
+    width: 52%;
+    min-height: calc(100vh - 76px);
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 8px;
+  }
+  .hero-headline,
+  .hero-sub {
+    text-align: left;
+  }
+  .hero-sub {
+    margin-left: 0;
+  }
+  .badges {
+    justify-content: flex-start;
+  }
+  .preview {
+    flex: 1;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero { column-gap: 48px; }
+  .hero-copy { padding-right: 16px; }
+}
+
+/* ---------- Highlight-marker reveal (see assets/js/site.js) ---------- */
+
+/* Hidden until the script has split the lines; shown as-is without JS. */
+.js [data-marker] {
+  visibility: hidden;
+}
+
+.js [data-badges] > *,
+.js [data-preview-bg] {
+  opacity: 0;
+}
+
+/* Where the phone settles from - full size without the animation. */
+.js [data-preview-phone] {
+  transform: scale(0.88);
+}
+
+.highlight-marker-line {
+  width: auto;
+  display: inline-block !important;
+  margin: -0.02em 0;
+  padding-right: 0.15em;
+}
+
+/*
+ * Headline and subheading lines stack: inline-block (as above) lets short
+ * authored lines like "one week" / "at a time" run together once split.
+ * display: table keeps the line shrink-wrapped to its text, so the bar still
+ * hugs it, and auto margins centre it the way the text is centred.
+ */
+.hero-headline .highlight-marker-line,
+.hero-sub .highlight-marker-line {
+  display: table !important;
+  margin: -0.02em auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-headline .highlight-marker-line,
+  .hero-sub .highlight-marker-line {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+.highlight-marker-bar {
+  position: absolute;
+  inset: -0.02em 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- Legal pages ---------- */
+
+.page-legal {
+  background: var(--ink);
+  color: var(--gray-200);
+}
+
+.legal {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.back:hover {
+  color: var(--gray-300);
+}
+
+/* The compact dark prose of the arcs legal pages. */
+.prose {
+  font-size: 14px;
+  line-height: 1.714;
+}
+
+.prose h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* The generated "Strybe - Big Lemon LLC. Effective ..." line under the title. */
+.prose h1 + p {
+  margin: 0 0 40px;
+  color: var(--gray-500);
+}
+
+.prose h1 + p em {
+  font-style: normal;
+}
+
+.prose h2 {
+  margin: 2em 0 0.8em;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #fff;
+}
+
+.prose p {
+  margin: 1.14em 0;
+}
+
+.prose ul {
+  margin: 1.14em 0;
+  padding-left: 1.57em;
+}
+
+.prose li {
+  margin: 0.29em 0;
+  padding-left: 0.43em;
+}
+
+.prose li::marker {
+  color: var(--gray-500);
+}
+
+.prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.prose a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
