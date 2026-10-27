@@ -13,7 +13,6 @@
   --gray-700: #374151;
   --gray-900: #111827;
   --panel: #f7f7fa;
-  --ink: #0a0a0f;
   /* Strybe's accent, from the app's theme. */
   --accent: #ec662b;
 }
@@ -373,8 +372,8 @@ video {
 /* ---------- Legal pages ---------- */
 
 .page-legal {
-  background: var(--ink);
-  color: var(--gray-200);
+  background: #fff;
+  color: var(--gray-700);
 }
 
 .legal {
@@ -396,10 +395,10 @@ video {
 }
 
 .back:hover {
-  color: var(--gray-300);
+  color: var(--gray-900);
 }
 
-/* The compact dark prose of the arcs legal pages. */
+/* The compact prose of the arcs legal pages, in the landing page's light colours. */
 .prose {
   font-size: 14px;
   line-height: 1.714;
@@ -410,7 +409,7 @@ video {
   font-size: 30px;
   line-height: 1.2;
   font-weight: 700;
-  color: #fff;
+  color: var(--gray-900);
 }
 
 /* The generated "Strybe - Big Lemon LLC. Effective ..." line under the title. */
@@ -428,7 +427,7 @@ video {
   font-size: 18px;
   line-height: 1.4;
   font-weight: 600;
-  color: #fff;
+  color: var(--gray-900);
 }
 
 .prose p {
@@ -446,16 +445,16 @@ video {
 }
 
 .prose li::marker {
-  color: var(--gray-500);
+  color: var(--gray-400);
 }
 
 .prose strong {
-  color: #fff;
+  color: var(--gray-900);
   font-weight: 600;
 }
 
 .prose a {
-  color: #fff;
+  color: var(--gray-900);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
