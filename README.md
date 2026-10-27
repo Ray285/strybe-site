@@ -1,5 +1,6 @@
-# strybe-legal
+# strybe-site
 
-Public Privacy Policy and Terms of Service for the Strybe app, served by GitHub Pages.
+The Strybe app's website, served by GitHub Pages: a landing page plus the Privacy Policy and Terms of Service.
 
-`index.md`, `privacy.md` and `terms.md` are generated. Don't edit them by hand; regenerate them from the app repo with `node scripts/exportLegal.mjs ../strybe-legal`.
+- `index.md` is the landing page. Edit it by hand.
+- `privacy.md` and `terms.md` are generated, so don't edit them. Regenerate them from the app repo with `node scripts/exportLegal.mjs ../strybe-site`.
